@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -69,4 +70,17 @@ public class DevController {
 		 return developer;
 	}
 
+	@DeleteMapping("/remove/{devId}")
+	public Developer removeDevelopers(@PathVariable("devId") int devId) {
+		 Developer devp=jpaDemo.getById(devId);
+		 System.out.println(devp);
+		  jpaDemo.delete(devp);
+		  return devp;
+	}
+	@PutMapping(path="/developerUpdate")
+	public Developer updateDev(@RequestBody Developer developer) {
+		
+		 jpaDemo.save(developer);
+		 return developer;
+	}
 }
