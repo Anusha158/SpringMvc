@@ -10,6 +10,7 @@ import org.springcrud.springcrudDemo.Dao.StudentDao;
 import org.springcrud.springcrudDemo.Model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,12 @@ public class HomeController {
 	
 	@Autowired
 	private StudentDao studentDao;
+	
+	@RequestMapping("/")    
+    public String showform(@ModelAttribute("student") Student student){    
+      
+        return "Login";   
+    }    
 	@RequestMapping(value="/create",method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("student") Student student ,ModelAndView mv) {
 		System.out.println("inside");

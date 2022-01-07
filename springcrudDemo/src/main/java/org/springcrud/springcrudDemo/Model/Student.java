@@ -8,10 +8,10 @@ public class Student {
 	public Student(int id, String studentName, String emailId) {
 		super();
 		this.id = id;
-		StudentName = studentName;
+		this.studentName = studentName;
 		this.emailId = emailId;
 	}
-	private String StudentName;
+	private String studentName;
 	private String emailId;
 	public int getId() {
 		return id;
@@ -19,17 +19,18 @@ public class Student {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getStudentName() {
-		return StudentName;
-	}
-	public void setStudentName(String studentName) {
-		StudentName = studentName;
-	}
+	
 	public String getEmailId() {
 		return emailId;
 	}
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 	
 		
