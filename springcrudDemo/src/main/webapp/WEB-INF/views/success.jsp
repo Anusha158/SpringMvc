@@ -12,7 +12,7 @@ ${msg}<br>
 
 <c:choose>
   <c:when test="${action == 'create'}">
-<a href="viewDetails">Verify Details</a>
+<a href="verify/<c:out value='${student.id}'/>">verify</a> 
   </c:when>
   <c:otherwise>
   

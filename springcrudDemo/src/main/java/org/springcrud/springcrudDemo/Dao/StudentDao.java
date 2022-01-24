@@ -2,6 +2,7 @@ package org.springcrud.springcrudDemo.Dao;
 
 import java.util.List;
 
+import org.springcrud.springcrudDemo.Model.CommunicationDTO;
 import org.springcrud.springcrudDemo.Model.Student;
 
 public interface StudentDao {
@@ -15,4 +16,5 @@ public interface StudentDao {
 	public int updateById(Student student);
 
 	public int delete(int studentId);
-}
+
+	}

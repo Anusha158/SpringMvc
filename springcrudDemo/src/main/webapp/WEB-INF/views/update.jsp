@@ -11,7 +11,9 @@
     <c:forEach var="student" items="${listStudent}" >
         id:<input type="text"  value="${student.id }" name="id" >
        StudentName: <input type="text" value="${student.studentName}" name="StudentName">
-       emailId:<input type="text" value="${student.emailId}" name="emailId">
+       Age: <input type="text" value="${student.age}" name="age">
+       emailId:<input type="text" value="${student.communicationDTO.emailId}" name="emailId">
+        phone:<input type="text" value="${student.communicationDTO.phone.number}-${student.communicationDTO.phone.countryCode}" name="phone">
         <input type="submit" >
         </c:forEach>
         

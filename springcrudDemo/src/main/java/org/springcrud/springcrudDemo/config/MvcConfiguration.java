@@ -4,9 +4,13 @@ import javax.sql.DataSource;
 
 import org.springcrud.springcrudDemo.Dao.StudentDao;
 import org.springcrud.springcrudDemo.Dao.StudentDaoImp;
+import org.springcrud.springcrudDemo.Model.CommunicationDTO;
+import org.springcrud.springcrudDemo.Model.Phone;
+import org.springcrud.springcrudDemo.formatter.PhoneNumberformatter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.ViewResolver;
@@ -46,7 +50,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
     @Bean
     public StudentDao getStudentDAO() {//method is bean id like in xml 
     	StudentDaoImp daoImp=new StudentDaoImp();
-    	daoImp.setJdbcTemplate(getJdbcTemplate()); //setter in jection
+    	daoImp.setJdbcTemplate(getJdbcTemplate());
+    	
     	return daoImp;  
     }
  
@@ -55,5 +60,11 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
         return new JdbcTemplate(getDataSource()); //constructor injection
     }
     
+   
+    
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+    	registry.addFormatter(new PhoneNumberformatter());
+}
 	
 }

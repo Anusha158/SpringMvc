@@ -14,13 +14,18 @@
 <tr>
 <th>Id</th>
 <th>StudentName</th>
+<th>Age</th>
 <th>EmailId</th>
+<th>Phone</th>
 </tr>
 <c:forEach  var="student" items="${list}">
 <tr>
 <td>${student.id}</td>
 <td>${student.studentName}</td>
-<td>${student.emailId}  </td><td>  </td>
+<td>${student.age}</td>
+<td>${student.communicationDTO.emailId}</td>
+<td>${student.communicationDTO.phone.countryCode}-${student.communicationDTO.phone.number}</td>
+
 <td><a href="update/<c:out value='${student.id}'/>">Update</a> | <a
 					href="delete/<c:out value='${student.id}'/>">Delete</a></td>
 </tr>
